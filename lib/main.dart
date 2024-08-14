@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sparkathon_project/ar_feature/ar_feature.dart';
+import 'package:sparkathon_project/onboarding_screens/screen1.dart';
 import 'package:sparkathon_project/utils/theme/theme.dart';
 
 void main() {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: TrendyTheme.lightTheme, 
       darkTheme: TrendyTheme.darkTheme,
-      home: ARFeatureScreen(),
+      home: OnBoardingScreen(),
     );
   }
 }

@@ -12,7 +12,9 @@ class TrendyTheme{
     textTheme: TrendyTextTheme.lightTextTheme,
     elevatedButtonTheme: TrendyElevatedButtonTheme.lightElevatedButtonTheme,
     appBarTheme: TrendyAppBarTheme.lightAppBarTheme,
-
+    bottomSheetTheme: TrendyBottomSheetTheme.lightBottomSheetTheme,
+    outlinedButtonTheme: TrendyOutlinedButtonTheme.lightOutlinedButtonTheme,
+    checkboxTheme: TrendyCheckboxTheme.lightCheckboxTheme,
   );
   static ThemeData darkTheme = ThemeData(
     useMaterial3: true,
@@ -22,5 +24,8 @@ class TrendyTheme{
     textTheme: TrendyTextTheme.darkTextTheme,
     elevatedButtonTheme: TrendyElevatedButtonTheme.darkElevatedButtonTheme,
     appBarTheme: TrendyAppBarTheme.darkAppBarTheme,
+    bottomSheetTheme: TrendyBottomSheetTheme.darkBottomSheetTheme,
+    outlinedButtonTheme: TrendyOutlinedButtonTheme.darkOutlinedButtonTheme,
+    checkboxTheme: TrendyCheckboxTheme.darkCheckboxTheme,
   );
 }
