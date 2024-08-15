@@ -16,48 +16,65 @@ class _HomeScreenState extends State<HomeScreen> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-        
             Container(
               padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.06),
               alignment: Alignment.topLeft,
               child: Text("Catagories", style: Theme.of(context).textTheme.headlineMedium,)
             ),
-
             SizedBox(height: MediaQuery.of(context).size.height*0.025,),
             CarouselSlider(
               items: [
                 InkWell(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
+                  child: Card(
+                    color: Colors.indigoAccent,
+                    elevation: 30,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      height: 350,
+                      child: Image.asset("assets/image/clothing.jpg",)
                     ),
-                    height: 350,
-                    child: Image.asset("assets/image/clothing.jpg", fit: BoxFit.cover,)
                   ),
                 ),
                 InkWell(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    height: 350,
-                    child: Image.asset("assets/image/furniture.jpeg", fit: BoxFit.cover,)),
+                  child: Card(
+                    elevation: 30,
+                    color: Colors.indigoAccent,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      height: 350,
+                      child: Image.asset("assets/image/furniture.jpeg")),
+                  ),
                 ),
                 InkWell(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    height: 350,
-                    child: Image.asset("assets/image/appliances.jpeg", fit: BoxFit.cover)),
+                  child: Card(
+                    color: Colors.indigoAccent,
+                    elevation: 30,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      height: 350,
+                      child: Image.asset("assets/image/appliances.jpeg",)),
+                  ),
                 ),
                 InkWell(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    height: 350,
-                    child: Image.asset("assets/image/gadgets.jpeg", fit: BoxFit.cover)),
+                  child: Card(
+                    color: Colors.indigoAccent,
+                    elevation: 30,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      height: 350,
+                      child: Image.asset("assets/image/gadgets.jpeg", fit: BoxFit.cover,)
+                      
+                      ),
+                  ),
                 ),
               ], 
               options: CarouselOptions(
@@ -66,6 +83,42 @@ class _HomeScreenState extends State<HomeScreen> {
                 autoPlay: true,
                 clipBehavior : Clip.antiAlias,
               ) 
+            ),
+            SizedBox(height: MediaQuery.of(context).size.height*0.025,),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.06),
+              alignment: Alignment.topLeft,
+              child: Text("Hot Deals", style: Theme.of(context).textTheme.headlineMedium,)
+            ),
+            Expanded(
+              child: Container(
+              margin: EdgeInsets.all(20),
+              child: GridView(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10
+                  ),
+                  children: [
+                    Card(
+                      elevation: 20,
+                      child: Container(
+                        height: MediaQuery.of(context).size.height*0.2,
+                        width: MediaQuery.of(context).size.width*0.4,
+                        child: Image.asset("assets/image/watches_discount.png", fit: BoxFit.cover,),
+                      ),
+                    ),
+                    Card(
+                      elevation: 20,
+                      child: Container(
+                        height: MediaQuery.of(context).size.height*0.2,
+                        width: MediaQuery.of(context).size.width*0.4,
+                        child: Image.asset("assets/image/watches_discount.png", fit: BoxFit.cover,),
+                      ),
+                    ),
+                  ],
+                ) 
+              )
             )
           ],
         ),
