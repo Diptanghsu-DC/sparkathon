@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:sparkathon_project/homepage/catagory_screen.dart';
+import '../../homepage/home_screen.dart';
 import '../signup/signup.dart';
 
 class LoginPage extends StatefulWidget {
@@ -81,7 +82,9 @@ class _LoginPageState extends State<LoginPage> {
                       SizedBox(height: screenHeight*0.04,),
           
                       ElevatedButton(
-                        onPressed: (){}, 
+                        onPressed: (){
+                          Navigator.push(context, MaterialPageRoute(builder:(context) => const HomePage()));
+                        }, 
                         style: Theme.of(context).elevatedButtonTheme.style?.copyWith(minimumSize: WidgetStatePropertyAll(Size(screenWidth*0.6, screenHeight*0.05))),
                         child: const Text("Login"), 
                         

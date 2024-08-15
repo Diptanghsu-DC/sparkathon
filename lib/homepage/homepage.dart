@@ -1,70 +1,75 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:sparkathon_project/homepage/cart_screen.dart';
-import 'package:sparkathon_project/homepage/catagory_screen.dart';
-import 'package:sparkathon_project/homepage/profile_screen.dart';
-import 'widget/custom_search_delegate/custom_search_delegate.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
-int _currentIndex = 0;
-final List<Widget> _children = [
-    HomePage(),
-    CategoryScreen(),
-    CartScreen(),
-    ProfileScreen(),
-  ];
 
-class _HomePageState extends State<HomePage> {
+class _HomeScreenState extends State<HomeScreen> {
   @override
-    Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Ecommerce App'),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.search),
-            onPressed: () {
-              showSearch(
-                context: context,
-                delegate: CustomSearchDelegate(),
-              );
-            },
-          ),
-        ],
-      ),
-      body: _children[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        currentIndex: _currentIndex,
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.category),
-            label: 'Category',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
-            label: 'Cart',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
-      ),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+        
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.06),
+              alignment: Alignment.topLeft,
+              child: Text("Catagories", style: Theme.of(context).textTheme.headlineMedium,)
+            ),
+
+            SizedBox(height: MediaQuery.of(context).size.height*0.025,),
+            CarouselSlider(
+              items: [
+                InkWell(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    height: 350,
+                    child: Image.asset("assets/image/clothing.jpg", fit: BoxFit.cover,)
+                  ),
+                ),
+                InkWell(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    height: 350,
+                    child: Image.asset("assets/image/furniture.jpeg", fit: BoxFit.cover,)),
+                ),
+                InkWell(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    height: 350,
+                    child: Image.asset("assets/image/appliances.jpeg", fit: BoxFit.cover)),
+                ),
+                InkWell(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    height: 350,
+                    child: Image.asset("assets/image/gadgets.jpeg", fit: BoxFit.cover)),
+                ),
+              ], 
+              options: CarouselOptions(
+                // enlargeCenterPage: true,
+                viewportFraction: 1,
+                autoPlay: true,
+                clipBehavior : Clip.antiAlias,
+              ) 
+            )
+          ],
+        ),
+      )
     );
   }
 }
-
